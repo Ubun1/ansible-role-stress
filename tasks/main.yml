@@ -45,11 +45,6 @@
   check_mode: False
   tags: skip_ansible_lint
 
-- name: Fail if no stress-ng processes found
-  fail:
-    msg: No stress-ng processes found!
-  when: stress_procs.stdout < 1
-
 - name: Get dead screen count
   shell: screen -ls|grep -c Dead
   register: reg_dead_screens
