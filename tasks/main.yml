@@ -31,13 +31,7 @@
     screen -S stress -d -m
     stress-ng
     --timeout {{ test_duration }}
-    --hdd-bytes {{ bytes_per_hdd_worker }}
-    --vm-bytes {{ bytes_per_vm_worker }}
-    --vm-method all
-    --cpu-method all
     --cpu {{ cpu_workers }}
-    --vm {{ vm_workers }}
-    --hdd {{ hdd_workers }}
     --log-file {{ stress_tmp_dir }}/stress-ng-{{ ansible_date_time.iso8601_basic_short }}.log
     ; sleep 2
   args:
