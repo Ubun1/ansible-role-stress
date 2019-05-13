@@ -27,13 +27,13 @@
     state: directory
 
 - name: run stress-ng
-  command: >
+  command: |
     screen -S stress -d -m
     stress-ng
     --timeout {{ test_duration }}
     --cpu {{ cpu_workers }}
     --log-file {{ stress_tmp_dir }}/stress-ng-{{ ansible_date_time.iso8601_basic_short }}.log
-    ; sleep 2
+    sleep 2
   args:
     chdir: "{{ stress_tmp_dir }}"
   tags: skip_ansible_lint
